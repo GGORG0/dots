@@ -1,0 +1,18 @@
+input {
+    keyboard {
+        xkb { layout "pl"; }
+        numlock
+    }
+    
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-profile "flat"
+    }
+    
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth
+}

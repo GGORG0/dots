@@ -1,0 +1,133 @@
+include "dms/alttab.kdl"
+// include "dms/colors.kdl"
+include "dms/cursor.kdl"
+include "dms/windowrules.kdl"
+include "dms/layout.kdl"
+include "dms/outputs.kdl"
+include "dms/wpblur.kdl"
+
+include "input.kdl"
+include "binds.kdl"
+
+layout {
+    center-focused-column "never"
+    always-center-single-column
+    // background-color "#11111b"
+    background-color "transparent"
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 0.75
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    focus-ring { off; }
+
+    border {
+        on
+        width 3
+
+        active-color "#cba6f7"
+        inactive-color "#6c7086"
+        urgent-color "#f38ba8"
+    }
+
+    shadow {
+        on
+        draw-behind-window true
+
+        softness 30
+        spread 5
+        offset x=0 y=5
+
+        color "#0007"
+    }
+
+    insert-hint {
+        on
+        color "#9399b2"
+    }
+}
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+overview {
+    // backdrop-color "#11111b"
+    backdrop-color "transparent"
+}
+
+recent-windows {
+    highlight { corner-radius 10; }
+}
+
+hotkey-overlay { skip-at-startup; }
+
+config-notification { disable-failed; } // DMS has one
+
+debug { honor-xdg-activation-with-invalid-serial; } // focus broken apps from notifications
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="Spotify"
+    match app-id="Bitwarden"
+
+    block-out-from "screencast"
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    match app-id="steam" title=r#"^Steam Big Picture Mode$"#
+    open-fullscreen true
+}
+
+window-rule {
+    match app-id="gcr-prompter"
+    open-focused true
+}
+
+window-rule {
+    match app-id="com.hypixel.HytaleLauncher"
+    open-floating false
+}
+
+layer-rule {
+    match namespace="^dms:slideout$"
+    match namespace="^dms:clipboard$"
+    match namespace="^dms:notification-popup$"
+
+    block-out-from "screencast"
+}
+
+window-rule {
+    match is-floating=true
+
+    background-effect { xray false; }
+}
+
+layer-rule {
+    match layer="top"
+    match layer="overlay"
+
+    background-effect { xray false; }
+}
