@@ -1,0 +1,17 @@
+_boot_dir=${boot_dir:-/boot}
+_efi_dir=${efi_dir:-/boot/EFI}
+
+pkgname=ggorg-systemd-boot-arch-netboot
+pkgver=1
+pkgrel=1
+pkgdesc='Arch Linux netboot as systemd-boot loader entry'
+arch=('x86_64')
+license=('custom')
+depends=('systemd')
+source=('https://archlinux.org/static/netboot/ipxe-arch.efi' 'arch_netboot.conf')
+b2sums=('SKIP' 'SKIP')
+
+package() {
+  install -Dm755 "${srcdir}"/ipxe-arch.efi "${pkgdir}"/"${_efi_dir}"/arch_netboot/arch_netboot.efi
+  install -Dm755 arch_netboot.conf "${pkgdir}"/"${_boot_dir}"/loader/entries/arch_netboot.conf
+}

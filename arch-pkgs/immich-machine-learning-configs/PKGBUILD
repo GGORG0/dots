@@ -1,0 +1,21 @@
+pkgname=ggorg-immich-machine-learning-configs
+pkgver=1
+pkgrel=1
+pkgdesc="Configuration files for Immich machine learning"
+arch=('any')
+license=('custom')
+depends=('immich-machine-learning')
+source=('immich.conf' 'sysusers.conf' 'tmpfiles.conf')
+sha256sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+    install -Dm644 "$srcdir/immich.conf" \
+        "$pkgdir/etc/immich.conf"
+
+    install -Dm644 "$srcdir/sysusers.conf" \
+        "$pkgdir/usr/lib/sysusers.d/immich.conf"
+
+    install -Dm644 "$srcdir/tmpfiles.conf" \
+        "$pkgdir/usr/lib/tmpfiles.d/immich.conf"
+}
+

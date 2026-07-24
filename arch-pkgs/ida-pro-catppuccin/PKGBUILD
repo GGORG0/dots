@@ -1,0 +1,19 @@
+_pkgname=ida-pro-catppuccin
+pkgname="ggorg-${_pkgname}"
+pkgver=1
+pkgrel=1
+pkgdesc="Soothing pastel theme for IDA (Interactive Disassembler)"
+arch=('x86_64')
+url="https://github.com/catppuccin/ida-debugger"
+license=('MIT')
+depends=('ida-pro')
+makedepends=('git')
+source=("${_pkgname}::git+${url}")
+sha256sums=('SKIP')
+
+package() {
+  for theme in latte frappe macchiato mocha; do
+    install -dm755 "$pkgdir"/opt/ida-pro/themes/catppuccin-$theme
+    cp -r "$srcdir/${_pkgname}"/catppuccin-$theme/* "$pkgdir"/opt/ida-pro/themes/catppuccin-$theme
+  done
+}

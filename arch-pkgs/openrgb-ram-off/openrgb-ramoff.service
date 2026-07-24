@@ -1,0 +1,13 @@
+[Unit]
+Description=Run OpenRGB to turn off ENE DRAM RGB LEDs
+After=network.target lm_sensors.service
+
+[Service]
+ExecStart=/usr/bin/openrgb --config /etc/openrgb --noautoconnect --profile /etc/openrgb/ramoff.orp
+Type=simple
+Restart=no
+RuntimeDirectory=openrgb
+WorkingDirectory=/run/openrgb
+
+[Install]
+WantedBy=multi-user.target

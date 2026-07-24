@@ -1,0 +1,41 @@
+#
+# $PARU_CONF
+# /etc/paru.conf
+# ~/.config/paru/paru.conf
+#
+# See the paru.conf(5) manpage for options
+
+#
+# GENERAL OPTIONS
+#
+[options]
+BottomUp
+SudoLoop
+Devel
+#CleanAfter
+Provides
+PgpFetch
+CombinedUpgrade
+BatchInstall
+NewsOnUpgrade
+UseAsk
+DevelSuffixes = -git -cvs -svn -bzr -darcs -always -hg -fossil
+#SkipReview
+
+#
+# Binary OPTIONS
+#
+#[bin]
+#FileManager = vifm
+#MFlags = --skippgpcheck
+#Sudo = doas
+
+#
+# PKGBUILD repositories
+#
+[ggorg-arch-pkgs]
+Url = file://{{- .chezmoi.sourceDir }}
+Path = arch-pkgs
+SkipReview
+GenerateSrcinfo
+

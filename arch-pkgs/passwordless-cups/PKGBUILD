@@ -1,0 +1,16 @@
+_pkgname=passwordless-cups
+pkgname="ggorg-${_pkgname}"
+pkgver=1
+pkgrel=1
+pkgdesc="Allow users in the wheel group to administer printers without a password"
+arch=('any')
+license=('custom')
+depends=()
+source=("49-${_pkgname}.rules")
+sha256sums=('SKIP')
+
+package() {
+    install -Dm644 "$srcdir/49-${_pkgname}.rules" \
+        "$pkgdir/usr/share/polkit-1/rules.d/49-${_pkgname}.rules"
+}
+

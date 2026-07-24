@@ -1,0 +1,16 @@
+gen() {
+	echo "Regenerating systemd-boot config..."
+	sdboot-manage gen
+}
+
+post_install() {
+	gen
+}
+
+post_upgrade() {
+	gen
+}
+
+post_remove() {
+	gen
+}

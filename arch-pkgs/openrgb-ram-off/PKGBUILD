@@ -1,0 +1,18 @@
+pkgname="ggorg-openrgb-ram-off"
+pkgver=1
+pkgrel=1
+pkgdesc="OpenRGB configs to turn off ENE DRAM RGB LEDs on system startup"
+arch=('any')
+license=('custom')
+depends=('openrgb')
+source=('ramoff.orp' 'openrgb-ramoff.service')
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+    install -Dm644 "$srcdir/openrgb-ramoff.service" \
+        "$pkgdir/usr/lib/systemd/system/openrgb-ramoff.service"
+    
+    install -Dm644 "$srcdir/ramoff.orp" \
+        "$pkgdir/etc/openrgb/ramoff.orp"
+}
+

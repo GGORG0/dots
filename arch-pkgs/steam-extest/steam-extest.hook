@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = steam
+
+[Action]
+When = PostTransaction
+Exec = /etc/pacman.d/hooks.bin/steam-extest.sh
+NeedsTargets

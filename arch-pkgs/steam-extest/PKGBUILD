@@ -1,0 +1,16 @@
+_pkgname=steam-extest
+pkgname="ggorg-${_pkgname}"
+pkgver=1
+pkgrel=1
+pkgdesc="Pacman hook that patches Steam's desktop file to preload extest"
+arch=('x86_64')
+license=('custom')
+depends=('bash' 'steam' 'lib32-extest')
+makedepends=('git')
+source=('steam-extest.hook' 'steam-extest.sh')
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+  install -Dm644 "$srcdir/steam-extest.hook" "$pkgdir/etc/pacman.d/hooks/steam-extest.hook"
+	install -Dm755 "$srcdir/steam-extest.sh" "$pkgdir/etc/pacman.d/hooks.bin/steam-extest.sh"
+}
