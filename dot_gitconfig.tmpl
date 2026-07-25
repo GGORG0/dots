@@ -1,0 +1,27 @@
+[alias]
+    cm = "commit"
+    co = "checkout"
+    pl = "pull"
+    pu = "push"
+    st = "status"
+    a = "add"
+
+[commit]
+    gpgSign = true
+
+[gpg]
+    format = "ssh"
+
+[user]
+    email = me@ggorg.xyz
+    name = "GGORG"
+
+[init]
+    defaultBranch = master
+
+[tag]
+    forceSignAnnotated = true
+
+[gpg "ssh"]
+    defaultKeyCommand = {{ joinPath .chezmoi.homeDir ".local" "bin" "pick-ssh-key" }}
+
