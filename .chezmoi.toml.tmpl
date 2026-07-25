@@ -1,1 +1,8 @@
 sourceDir = "~/Projects/dots"
+
+encryption = "age"
+[age]
+    identity = "{{- joinPath (osDir .chezmoi.configFile) "key.txt" -}}"
+    recipients = [
+        "age1nksdwszqu7elk2pe956a3uhv2eh0cxrxe58jd0fv8utgt0ypd4cqcgdxye"
+    ]
