@@ -5,8 +5,8 @@ pkgdesc="Configuration files for sdboot-manage"
 arch=('any')
 license=('custom')
 depends=('systemd-boot-manager')
-source=('no-plymouth.conf' 'force-fsck.conf' 'hibernation.conf')
-sha256sums=('SKIP' 'SKIP' 'SKIP')
+source=('no-plymouth.conf' 'force-fsck.conf' 'hibernation.conf' 'sysrq.conf')
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 install='sdboot-gen.install'
 
 package() {
