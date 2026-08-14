@@ -1,0 +1,223 @@
+{{- /* -*- mode: Go JSON Template -*- */ -}}
+
+{{- $secrets := rbwFields "Zed secrets" -}}
+
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "format_on_save": "modifications_if_available",
+  "which_key": {
+    "delay_ms": 500,
+    "enabled": true
+  },
+  "default_open_behavior": "new_window",
+  "git_panel": {
+    "tree_view": true,
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
+  "diff_view_style": "unified",
+  "focus_follows_mouse": {
+    "debounce_ms": 50,
+    "enabled": true,
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "semantic_tokens": "combined",
+  "agent": {
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
+      "effort": "medium",
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "cli_default_open_behavior": "new_window",
+  "languages": {
+    "C": {
+      "tab_size": 2
+    },
+    "C++": {
+      "tab_size": 2
+    },
+    "Typst": {
+      "soft_wrap": "editor_width",
+    },
+    "HTML": {
+      "language_servers": ["!ltex", "..."],
+    },
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "github_personal_access_token": {{ (index $secrets "GitHub PAT").value | quote }},
+      },
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": {{ (index $secrets "Context7 API Key").value | quote }},
+      },
+    },
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+  },
+  "show_edit_predictions": true,
+  "restore_on_startup": "launchpad",
+  "redact_private_values": true,
+  "project_panel": {
+    "dock": "right",
+    "hide_root": true,
+  },
+  "window_decorations": "server",
+  "tabs": {
+    "show_diagnostics": "all",
+    "file_icons": true,
+    "git_status": true,
+  },
+  "search": {
+    "center_on_match": true,
+  },
+  "use_smartcase_search": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "colorize_brackets": true,
+  "inlay_hints": {
+    "show_background": true,
+    "enabled": true,
+  },
+  "completion_menu_scrollbar": "always",
+  "indent_guides": {
+    "active_line_width": 2,
+    "background_coloring": "disabled",
+    "coloring": "indent_aware",
+  },
+  "toolbar": {
+    "code_actions": true,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "scrollbar": {
+    "show": "always",
+  },
+  "relative_line_numbers": "enabled",
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy",
+        },
+      },
+    },
+    "cargo-tom": {
+      "initialization_options": {
+        "sort_format": "true",
+      },
+    },
+    "tinymist": {
+      "binary": {
+        "path": "/usr/bin/tinymist",
+        // "arguments": ["lsp", "--mirror", "/tmp/tinymist.log"]
+      },
+      "initialization_options": {
+        "preview": {
+          "background": {
+            "enabled": true,
+            // "args": [
+            //   "--data-plane-host=127.0.0.1:23635",
+            //   "--invert-colors=never",
+            // ],
+          },
+        },
+      },
+      "settings": {
+        "exportpdf": "onsave",
+        "outputpath": "$root/$name",
+        "lint": {
+          "enabled": true,
+          "when": "ontype",
+        },
+        "formatterprosewrap": true,
+        "formattermode": "typstyle",
+      },
+    },
+  },
+  "terminal": {
+    "env": {
+      "EDITOR": "zeditor --wait",
+      "VISUAL": "zeditor --wait",
+      "GIT_EDITOR": "zeditor --wait",
+    },
+  },
+  "node": {
+    "ignore_system_version": true,
+  },
+}

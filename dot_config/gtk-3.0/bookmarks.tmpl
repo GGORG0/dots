@@ -1,0 +1,10 @@
+{{- /* -*- mode: Go Text Template -*- */ -}}
+
+file://{{- joinPath .chezmoi.destDir "Documents" }} Documents
+file://{{- joinPath .chezmoi.destDir "Downloads" }} Downloads
+file://{{- joinPath .chezmoi.destDir "Projects" }} Projects
+file://{{- joinPath .chezmoi.destDir "Music" }} Music
+file://{{- joinPath .chezmoi.destDir "Pictures" }} Pictures
+file://{{- joinPath .chezmoi.destDir "Videos" }} Videos
+file:/// /
+smb://nas.ggorg.xyz/ NAS

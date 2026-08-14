@@ -1,0 +1,27 @@
+{{- /* -*- mode: Go Text Template -*- */ -}}
+{{- $orig := dict -}}
+{{- if not (stat .chezmoi.targetFile | empty) -}}
+  {{- $orig = include .chezmoi.targetFile | fromIni -}}
+{{- end -}}
+
+{{- 
+  $shortcuts := list
+    "file:"
+    "file:///home/ggorg"
+    "file:///home/ggorg/Documents"
+    "file:///home/ggorg/Downloads"
+    "file:///home/ggorg/Projects"
+    "file:///home/ggorg/Music"
+    "file:///home/ggorg/Pictures"
+    "file:///home/ggorg/Videos"
+    "file:///"
+    | join ", "
+-}}
+{{- $out := $orig | setValueAtPath (list "FileDialog" "shortcuts") $shortcuts -}}
+
+{{- range $section, $values := $out -}}
+[{{ $section }}]
+{{ range $key, $value := $values -}}
+{{ $key }}={{ if $value | contains "\\" }}"{{ end }}{{ $value }}{{ if $value | contains "\\" }}"{{ end }}
+{{ end -}}
+{{ end -}}

@@ -1,0 +1,4 @@
+{{- /* -*- mode: Go INI Template -*- */ -}}
+
+[Service]
+ExecStartPost=/usr/bin/ssh-add {{- range .ssh.keys }} {{ joinPath $.chezmoi.destDir ".ssh" . }} {{- end }}

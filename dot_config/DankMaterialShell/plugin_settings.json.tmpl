@@ -1,0 +1,31 @@
+{{- /* -*- mode: Go JSON Template -*- */ -}}
+{{- $orig := dict -}}
+{{- if not (stat .chezmoi.targetFile | empty) -}}
+  {{- $orig = include .chezmoi.targetFile | fromJson -}}
+{{- end -}}
+
+{
+  "calculator": {
+    "enabled": true,
+    "trigger": "",
+    "calcEngine": "qalc",
+    "qalcCommand": "qalc -i -t -set \"decimal comma on\" -c 0",
+    "noTrigger": true
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "recentEmojis": {{ dig "emojiLauncher" "recentEmojis" "" $orig | quote }}
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": {{ dig "dankKDEConnect" "selectedDeviceId" "" $orig | quote }}
+  },
+  "discordVoice": {
+    "enabled": true,
+    "maxBarAvatars": 10
+  },
+  "dankNotepadModule": {
+    "enabled": true,
+    "style": "catppuccin-mocha"
+  }
+}

@@ -1,0 +1,17 @@
+{{- /* -*- mode: Go INI Template -*- */ -}}
+
+[settings]
+api_url = https://hackatime.hackclub.com/api/hackatime/v1
+
+{{- $fields := rbwFields "identity.hackclub.app" }}
+{{- $key := index $fields "Hackatime API Key" }}
+api_key = {{ $key.value }}
+
+heartbeat_rate_limit_seconds = 30
+guess_language = true
+exclude =
+    ^COMMIT_EDITMSG$
+    ^TAG_EDITMSG$
+    ^/var/(?!www/).*
+    ^/etc/
+debug = false

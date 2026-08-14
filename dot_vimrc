@@ -1,0 +1,5 @@
+source $VIMRUNTIME/defaults.vim
+
+set tabstop=4 softtabstop=0
+set shiftwidth=2 smarttab
+set expandtab

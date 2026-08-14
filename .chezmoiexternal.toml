@@ -1,0 +1,15 @@
+[".local/share/nautilus-python/extensions/valent-share.py"]
+  type = "file"
+  url = "https://github.com/andyholmes/valent/files/12009346/valent-share.txt"
+  filter.command = "sed"
+  filter.args = ['''s/\(require_version('Nautilus', '\)4\.0'/\14.1'/''']
+
+[".config/btop/themes"]
+  type = "archive"
+  url = "https://github.com/catppuccin/btop/releases/download/1.0.0/themes.tar.gz"
+  exact = true
+  stripComponents = 1
+
+[".config/kitty/current-theme.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/kitty/refs/heads/main/themes/mocha.conf"

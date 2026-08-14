@@ -1,0 +1,5 @@
+{{- /* -*- mode: Go Text Template -*- */ -}}
+
+{{- range .ssh.keys }}
+{{- include (joinPath "private_dot_ssh" (print . ".pub")) }}
+{{- end }}

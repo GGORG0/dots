@@ -79,25 +79,31 @@ config-notification { disable-failed; } // DMS has one
 debug { honor-xdg-activation-with-invalid-serial; } // focus broken apps from notifications
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="firefox$" title="^Picture-in-Picture$"
     open-floating true
 }
 
 window-rule {
-    match app-id="Spotify"
-    match app-id="Bitwarden"
+    match app-id="^Spotify$"
+    match app-id="^Bitwarden$"
+    match title=r#"^Extension: \(Bitwarden Password Manager\)"#
 
     block-out-from "screencast"
 }
 
 window-rule {
-    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    match app-id="^steam$" title="^notificationtoasts_[[:alnum:]]+_desktop$"
     default-floating-position x=10 y=10 relative-to="bottom-right"
     open-focused false
 }
 
 window-rule {
-    match app-id="steam" title=r#"^Steam Big Picture Mode$"#
+    match app-id="^steam$" title="^Sign in to Steam$"
+    open-focused false
+}
+
+window-rule {
+    match app-id="^steam$" title="^Steam Big Picture Mode$"
     open-fullscreen true
 }
 
@@ -109,6 +115,12 @@ window-rule {
 window-rule {
     match app-id="com.hypixel.HytaleLauncher"
     open-floating false
+}
+
+window-rule {
+    match app-id="^valent$" title="^Share$"
+    match app-id="^dev.geopjr.Collision$"
+    open-floating true
 }
 
 layer-rule {

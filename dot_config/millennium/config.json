@@ -1,0 +1,114 @@
+{
+  "general": {
+    "accentColor": "DEFAULT_ACCENT_COLOR",
+    "checkForMillenniumUpdates": true,
+    "checkForPluginAndThemeUpdates": true,
+    "injectCSS": true,
+    "injectJavascript": true,
+    "millenniumUpdateChannel": "stable",
+    "onMillenniumUpdate": 1,
+    "shouldShowThemePluginUpdateNotifications": true
+  },
+  "misc": {
+    "hasShownWelcomeModal": true
+  },
+  "network": {
+    "proxy": "",
+    "proxyPassword": "",
+    "proxyUsername": ""
+  },
+  "notifications": {
+    "showNotifications": true,
+    "showPluginNotifications": true,
+    "showUpdateNotifications": true
+  },
+  "plugins": {
+    "enabledPlugins": [
+      "extendium",
+      "size-on-disk",
+      "steam-librarian",
+      "veygax.valve-internal-enabler"
+    ]
+  },
+  "themes": {
+    "activeTheme": "Adwaita-for-Steam",
+    "allowedScripts": true,
+    "allowedStyles": true,
+    "conditions": {
+      "Adwaita-for-Steam": {
+        "Accent color": "System",
+        "Color scheme": "System",
+        "Color theme": "Catppuccin Mocha",
+        "Font": "Adwaita",
+        "Hide What's New shelf": "no",
+        "Hide games list": "no",
+        "Keep pointer cursor for clickable elements": "no",
+        "Login QR code": "Show",
+        "Pointer cursor": "no",
+        "Remove rounded corners": "no",
+        "Rounded corners": "yes",
+        "Show Library sidebar on hover": "no",
+        "Show URL": "no",
+        "What's New shelf": "yes",
+        "Window controls layout": "Adwaita",
+        "Window controls theme": "Adwaita (GNOME)"
+      },
+      "win95-themes": {
+        "Colors": "Default",
+        "Reduced game list entry height": "yes"
+      }
+    },
+    "themeColors": {
+      "Adwaita-for-Steam": {
+        "--adw-accent-bg-rgb": "53, 132, 228",
+        "--adw-accent-fg-rgb": "255, 255, 255",
+        "--adw-accent-rgb": "120, 174, 237",
+        "--adw-banner-bg-rgb": "125, 125, 131",
+        "--adw-banner-fg-rgb": "255, 255, 255",
+        "--adw-card-bg-rgb": "255, 255, 255",
+        "--adw-card-fg-rgb": "255, 255, 255",
+        "--adw-card-shade-rgb": "0, 0, 6",
+        "--adw-destructive-bg-rgb": "192, 28, 40",
+        "--adw-destructive-fg-rgb": "255, 255, 255",
+        "--adw-destructive-rgb": "255, 123, 99",
+        "--adw-dialog-bg-rgb": "54, 54, 58",
+        "--adw-dialog-fg-rgb": "255, 255, 255",
+        "--adw-error-bg-rgb": "192, 28, 40",
+        "--adw-error-fg-rgb": "255, 255, 255",
+        "--adw-error-rgb": "255, 123, 99",
+        "--adw-headerbar-bg-rgb": "46, 46, 50",
+        "--adw-headerbar-border-rgb": "255, 255, 255",
+        "--adw-headerbar-darker-shade-rgb": "0, 0, 12",
+        "--adw-headerbar-fg-rgb": "255, 255, 255",
+        "--adw-headerbar-shade-rgb": "0, 0, 6",
+        "--adw-popover-bg-rgb": "54, 54, 58",
+        "--adw-popover-fg-rgb": "255, 255, 255",
+        "--adw-popover-shade-rgb": "0, 0, 6",
+        "--adw-secondary-sidebar-backdrop-rgb": "37, 37, 41",
+        "--adw-secondary-sidebar-bg-rgb": "40, 40, 44",
+        "--adw-secondary-sidebar-fg-rgb": "255, 255, 255",
+        "--adw-secondary-sidebar-shade-rgb": "0, 0, 6",
+        "--adw-shade-rgb": "0, 0, 6",
+        "--adw-sidebar-backdrop-rgb": "40, 40, 44",
+        "--adw-sidebar-bg-rgb": "46, 46, 50",
+        "--adw-sidebar-fg-rgb": "255, 255, 255",
+        "--adw-sidebar-shade-rgb": "0, 0, 6",
+        "--adw-success-bg-rgb": "38, 162, 105",
+        "--adw-success-fg-rgb": "255, 255, 255",
+        "--adw-success-rgb": "143, 240, 164",
+        "--adw-thumbnail-bg-rgb": "57, 57, 61",
+        "--adw-thumbnail-fg-rgb": "255, 255, 255",
+        "--adw-user-ingame-rgb": "143, 240, 164",
+        "--adw-user-offline-rgb": "128, 128, 128",
+        "--adw-user-online-rgb": "120, 174, 237",
+        "--adw-view-bg-rgb": "29, 29, 32",
+        "--adw-view-fg-rgb": "255, 255, 255",
+        "--adw-warning-bg-rgb": "205, 147, 9",
+        "--adw-warning-fg-rgb": "0, 0, 0",
+        "--adw-warning-rgb": "248, 228, 92",
+        "--adw-window-bg-rgb": "34, 34, 38",
+        "--adw-window-fg-rgb": "255, 255, 255"
+      }
+    }
+  }
+}

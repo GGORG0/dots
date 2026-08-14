@@ -1,27 +1,28 @@
+{{- /* -*- mode: Git Config -*- */ -}}
+
 [alias]
-    cm = "commit"
-    co = "checkout"
-    pl = "pull"
-    pu = "push"
-    st = "status"
-    a = "add"
+  cm = "commit"
+  co = "checkout"
+  pl = "pull"
+  pu = "push"
+  st = "status"
+  a = "add"
 
 [commit]
-    gpgSign = true
+  gpgSign = true
 
 [gpg]
-    format = "ssh"
+  format = "ssh"
 
 [user]
-    email = me@ggorg.xyz
-    name = "GGORG"
+  email = me@ggorg.xyz
+  name = "GGORG"
 
 [init]
-    defaultBranch = master
+  defaultBranch = master
 
 [tag]
-    forceSignAnnotated = true
+  forceSignAnnotated = true
 
 [gpg "ssh"]
-    defaultKeyCommand = {{ joinPath .chezmoi.homeDir ".local" "bin" "pick-ssh-key" }}
-
+  defaultKeyCommand = {{ joinPath .chezmoi.destDir ".local" "bin" "pick-ssh-key" | quote }}

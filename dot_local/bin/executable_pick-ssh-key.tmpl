@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+{{/* -*- mode: Go Bash Template -*- */}}
+set -euo pipefail
+
+# Workaround: make sure my keys are actually present in the agent
+ssh-add {{- range .ssh.keys }} {{ joinPath $.chezmoi.destDir ".ssh" . }} {{- end }}
+
+mapfile -t keys < <(ssh-add -L 2>/dev/null)
+mapfile -t serials < <(ykman list --serials 2>/dev/null || true)
+
+# Expects SSH key comment ending in " YK${serial}"
+for key in "${keys[@]}"; do
+  [[ $key == sk-* ]] || continue
+
+    for serial in "${serials[@]}"; do
+      if [[ $key == *" YK${serial}" ]]; then
+        printf 'key::%s\n' "$key"
+        exit 0
+      fi
+    done
+done
+
+for key in "${keys[@]}"; do
+  [[ $key == sk-* ]] && continue
+  printf 'key::%s\n' "$key"
+  exit 0
+done
+
+echo "No suitable SSH key found" >&2
+exit 1

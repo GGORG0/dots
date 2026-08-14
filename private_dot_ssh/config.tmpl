@@ -1,0 +1,7 @@
+{{- /* -*- mode: Go Text Template -*- */ -}}
+
+AddKeysToAgent yes
+
+{{- range .ssh.keys }}
+IdentityFile ~/.ssh/{{ . }}
+{{- end }}

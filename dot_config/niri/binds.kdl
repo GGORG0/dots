@@ -1,8 +1,9 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+RETURN  { spawn "kitty"; }
-    Mod+B       { spawn "zen-browser"; }
+    Mod+RETURN  { spawn "app2unit" "-T"; }
+    Mod+B       { spawn "app2unit" "zen.desktop"; }
+    Mod+Z       { spawn "app2unit" "dev.zed.Zed.desktop"; }
     MOD+SPACE   { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     MOD+V       { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     Mod+Slash   { spawn "dms" "ipc" "call" "notepad" "toggle"; }
