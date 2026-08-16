@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-type rbw >/dev/null 2>&1 && exit
-type pacman >/dev/null 2>&1 || echo "This script is only for Arch Linux" && exit 1
+type rbw >/dev/null 2>&1 && rbw config show >/dev/null 2>&1 && exit
+type pacman >/dev/null 2>&1 || { echo "This script is only for Arch Linux"; exit 1; }
 
 sudo pacman -S --needed --noconfirm rbw
 
