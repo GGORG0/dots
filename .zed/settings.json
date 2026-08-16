@@ -1,0 +1,5 @@
+{
+  "file_types": {
+    "ini": ["**/dot_config/mimeapps.list"],
+  },
+}
