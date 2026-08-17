@@ -13,4 +13,4 @@ recipients = [
 keys = ["yk19764917", "yk19764918"]
 
 [hooks.read-source-state.pre]
-command = {{ joinPath .chezmoi.sourceDir ".install-rbw.sh" | quote }}
+command = {{ joinPath .chezmoi.sourceDir ".chezmoiscripts" ".install-rbw.sh" | quote }}
