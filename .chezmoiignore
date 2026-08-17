@@ -1,2 +1,5 @@
 arch-pkgs/
 dconf.ini
+packages.txt
+
+todo.md
